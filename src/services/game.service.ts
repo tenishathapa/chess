@@ -7,15 +7,27 @@ export class GameService {
   private mode: "ai" | "pvp-local" | "pvp-online" = "ai";
 
   getFen() {
-    return this.chess.fen();
+    try {
+      return this.chess.fen();
+    } catch {
+      return "start";
+    }
   }
 
   getLegalMoves(square: Square) {
-    return this.chess.moves({ square, verbose: true });
+    try {
+      return this.chess.moves({ square, verbose: true });
+    } catch {
+      return [];
+    }
   }
 
   loadFen(fen: string) {
-    this.chess.load(fen);
+    try {
+      this.chess.load(fen);
+    } catch {
+      this.chess.reset();
+    }
   }
 
   reset() {
@@ -31,7 +43,12 @@ export class GameService {
   }
 
   async applyMove(from: string, to: string, promotion = "q") {
-    const move = this.chess.move({ from, to, promotion });
+    let move;
+    try {
+      move = this.chess.move({ from, to, promotion });
+    } catch {
+      return null;
+    }
     if (!move) return null;
 
     if (this.gameId) {
@@ -65,15 +82,27 @@ export class GameService {
   }
 
   isGameOver() {
-    return this.chess.isGameOver();
+    try {
+      return this.chess.isGameOver();
+    } catch {
+      return true;
+    }
   }
 
   getTurn() {
-    return this.chess.turn();
+    try {
+      return this.chess.turn();
+    } catch {
+      return "w";
+    }
   }
 
   getHistory() {
-    return this.chess.history({ verbose: true });
+    try {
+      return this.chess.history({ verbose: true });
+    } catch {
+      return [];
+    }
   }
 
   loadGame(id: number) {

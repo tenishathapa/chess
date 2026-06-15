@@ -3,9 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello, <%= username %></title>
+    <title>Chess</title>
+    <link rel="stylesheet" href="/css/chessboard.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    Game: <%= gameId %>
+    <%- include('partials/header', { userId }) %>
+    <main class="main-content">
+      <div class="home-page">
+        <h1>Play Chess</h1>
+        <p>A modern chess platform. Play against the AI or challenge a friend.</p>
+        <div class="home-actions">
+          <a href="/game" class="btn btn-primary">Play vs AI</a>
+          <% if (!userId) { %>
+            <a href="/auth/register" class="btn btn-secondary">Create Account</a>
+          <% } %>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

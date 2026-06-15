@@ -1,0 +1,18 @@
+<header class="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="logo">♟ Chess</a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/game">Play</a>
+      <% if (typeof userId !== 'undefined' && userId) { %>
+        <a href="/game">Dashboard</a>
+        <form method="POST" action="/auth/logout" class="inline-form">
+          <button type="submit" class="link-btn">Logout</button>
+        </form>
+      <% } else { %>
+        <a href="/auth/login">Login</a>
+        <a href="/auth/register">Register</a>
+      <% } %>
+    </nav>
+  </div>
+</header>
