@@ -16,8 +16,4 @@ router.get("/game", (req, res) => {
   });
 });
 
-router.get("/auth/login", (req, res) => {
-  res.render("auth/login.ejs");
-});
-
 export default router;

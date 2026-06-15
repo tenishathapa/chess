@@ -6,6 +6,8 @@ import { fileURLToPath } from "url";
 
 import appRouter from "./routes/app.routes.js";
 import apiRouter from "./routes/api.routes.js";
+import authRouter from "./routes/auth.routes.js";
+import { setupSession } from "./lib/session.js";
 
 const app = express();
 const httpServer = createServer(app);
@@ -17,17 +19,15 @@ app.set("view engine", "ejs");
 app.set("views", join(__dirname, "../views"));
 
 app.use(express.static(join(__dirname, "../public")));
+app.use(setupSession());
 
 app.use("/", appRouter);
 app.use("/", apiRouter);
+app.use("/", authRouter);
 
 io.on("connection", (socket) => {
-  socket.on("move", (data) => {
-    /* validate, push, respond */
-  });
-  socket.on("get-legal-moves", (data) => {
-    /* return squares */
-  });
+  socket.on("move", (data) => {});
+  socket.on("get-legal-moves", (data) => {});
 });
 
 httpServer.listen(3000, () =>
