@@ -149,6 +149,12 @@ No separate `repositories/` layer — Prisma Client eliminates the need for hand
 - `express-session`, `@types/express-session`
 - `connect-sqlite3`
 
+### 1.6 Build UI
+
+- Frontend UI to incorporate all the features built above(login, register and authorizations part)
+- Add links to various other pages in navbar
+- Modern, aesthetic, light-themed and minimal Page Design
+
 ---
 
 ## Phase 2 — UCI Engine Integration
