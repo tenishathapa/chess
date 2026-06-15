@@ -3,21 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Chess</title>
+    <title>Register - Chess</title>
     <link rel="stylesheet" href="/css/chessboard.css" />
   </head>
   <body>
     <main class="auth-page">
-      <h1>Login</h1>
+      <h1>Register</h1>
       <% if (typeof error !== 'undefined') { %>
         <p class="error-msg"><%= error %></p>
       <% } %>
-      <form method="POST" action="/auth/login">
+      <form method="POST" action="/auth/register">
         <label>Username <input type="text" name="username" required /></label>
+        <label>Email <input type="email" name="email" required /></label>
         <label>Password <input type="password" name="password" required /></label>
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
       </form>
-      <p>Don't have an account? <a href="/auth/register">Register</a></p>
+      <p>Already have an account? <a href="/auth/login">Login</a></p>
     </main>
   </body>
 </html>

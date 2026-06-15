@@ -4,11 +4,21 @@ import { AuthService } from "../services/auth.service.js";
 const auth = new AuthService();
 
 export function getLogin(req: Request, res: Response) {
-  res.render("auth/login.ejs");
+  const errors: Record<string, string> = {
+    invalid: "Invalid username or password",
+  };
+  res.render("auth/login.ejs", {
+    error: errors[req.query.error as string] ?? null,
+  });
 }
 
 export function getRegister(req: Request, res: Response) {
-  res.render("auth/register.ejs");
+  const errors: Record<string, string> = {
+    exists: "Username or email already taken",
+  };
+  res.render("auth/register.ejs", {
+    error: errors[req.query.error as string] ?? null,
+  });
 }
 
 export async function postRegister(req: Request, res: Response) {

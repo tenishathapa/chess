@@ -16,6 +16,7 @@
   "type": "module",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
+    "@types/connect-sqlite3": "^0.9.6",
     "@types/ejs": "^3.1.5",
     "@types/express": "^5.0.6",
     "@types/express-session": "^1.19.0",
@@ -30,6 +31,7 @@
     "@prisma/client": "^7.8.0",
     "bcryptjs": "^3.0.3",
     "chess.js": "^1.4.0",
+    "connect-sqlite3": "^0.9.16",
     "ejs": "^6.0.1",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
